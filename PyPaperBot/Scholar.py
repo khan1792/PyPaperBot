@@ -38,12 +38,12 @@ def scholar_requests(scholar_pages, url, restrict, scholar_results=10):
         if len(papers) > scholar_results:
             papers = papers[0:scholar_results]
 
-        print("\nGoogle Scholar page {} : {} papers found".format(i, scholar_results))
+
 
         if len(papers) > 0:
             papersInfo = getPapersInfo(papers, url, restrict, scholar_results)
             info_valids = functools.reduce(lambda a, b: a + 1 if b.DOI is not None else a, papersInfo, 0)
-            print("Papers found on Crossref: {}/{}\n".format(info_valids, len(papers)))
+
 
             to_download.append(papersInfo)
         else:
