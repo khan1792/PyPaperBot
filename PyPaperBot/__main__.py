@@ -13,7 +13,7 @@ def start(query, scholar_results, scholar_pages, dwn_dir, proxy, min_date=None, 
 
     to_download = []
     if DOIs==None:
-        print("Query: {}".format(query))
+        print("Query")
         to_download = ScholarPapersInfo(query, scholar_pages, restrict, min_date, scholar_results)
     else:
         print("Downloading papers from DOIs\n")
@@ -21,7 +21,7 @@ def start(query, scholar_results, scholar_pages, dwn_dir, proxy, min_date=None, 
         i = 0
         while i<len(DOIs):
             DOI = DOIs[i]
-            print("Searching paper {} of {} with DOI {}".format(num,len(DOIs),DOI))
+            print("Searching paper")
             papersInfo = getPapersInfoFromDOIs(DOI, restrict)
             to_download.append(papersInfo)
             if restrict != 0 and to_download:
@@ -108,7 +108,7 @@ def main():
                 else:
                     raise ValueError
             except Exception:
-                print(r"Error: Invalid format for --scholar-pages option. Expected: %d or %d-%d, got: " + args.scholar_pages)
+                print(r"Error: Invalid format for --scholar-pages option. Expected: %d or %d-%d, got: " )
                 sys.exit()
         else:
             print("Error: with --query provide also --scholar-pages")
